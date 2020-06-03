@@ -1,7 +1,8 @@
-# [LaTeX.CSS](https://latex.now.sh/)
+# A [LaTeX.CSS](https://latex.now.sh/) modification
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![latex.css on NPM](https://img.shields.io/npm/v/latex.css.svg?color=green&label=latex.css)](https://www.npmjs.com/package/latex.css)
+This is a modified version of the [LaTeX.CSS](https://github.com/vincentdoerig/latex-css) repository by Vincent Dörig. It adds a CSS file for org-mode with ox-twbs export and another css ("partial") used to apply the style inside a div.
+
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 > LaTeX.css is a minimal, almost class-less CSS library which makes any website look like a LaTeX document. It is based on @davidrzs' [latexCSS](https://github.com/davidrzs/latexcss).
 

@@ -1,14 +1,14 @@
 {
   "name": "latex.css",
   "version": "1.1.0",
-  "description": "A small CSS library to make your website look like a LaTeX document",
+  "description": "A small CSS library to make your website look like a LaTeX document. This version adds a style for org-mode and a to apply inside a div tag",
   "main": "./style.min.css",
   "scripts": {
     "build": "uglifycss style.css > style.min.css"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vincentdoerig/latex-css.git"
+    "url": "git+https://github.com/cnngimenez/latex-css.git"
   },
   "keywords": [
     "latex",
@@ -16,12 +16,12 @@
     "classless-theme",
     "css"
   ],
-  "author": "Vincent Dörig",
-  "license": "MIT",
+  "author": "Vincent Dörig, Christian Gimenez",
+  "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/vincentdoerig/latex-css/issues"
+    "url": "https://github.com/cnngimenez/latex-css/issues"
   },
-  "homepage": "https://latex.now.sh",
+  "homepage": "",
   "devDependencies": {
     "uglifycss": "0.0.29"
   }
