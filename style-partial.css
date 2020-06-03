@@ -1,0 +1,413 @@
+/*!
+ * LaTeX.css (https://latex.now.sh/)
+ *
+ * Source: https://github.com/vincentdoerig/latex-css
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+*/
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-regular.woff2') format('woff2'),
+    url('./fonts/LM-regular.woff') format('woff'),
+    url('./fonts/LM-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-italic.woff2') format('woff2'),
+    url('./fonts/LM-italic.woff') format('woff'),
+    url('./fonts/LM-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold.woff2') format('woff2'),
+    url('./fonts/LM-bold.woff') format('woff'),
+    url('./fonts/LM-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
+    url('./fonts/LM-bold-italic.woff') format('woff'),
+    url('./fonts/LM-bold-italic.ttf') format('truetype');
+}
+
+/* Box sizing rules */
+.latex-content *,
+.latex-content *::before,
+.latex-content *::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+.latex-content,
+.latex-content h1,
+.latex-content h2,
+.latex-content h3,
+.latex-content h4,
+.latex-content p,
+.latex-content ul[class],
+.latex-content ol[class],
+.latex-content li,
+.latex-content figure,
+.latex-content figcaption,
+.latex-content dl,
+.latex-content dd {
+  margin: 0;
+}
+
+/* Make default font-size 1rem and add smooth scrolling to anchors */
+.latex-content {
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
+
+.latex-content {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  line-height: 1.8;
+
+  max-width: 80ch;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+
+  counter-reset: theorem;
+  counter-reset: definition;
+
+  color: hsl(0, 5%, 10%);
+  background-color: hsl(210, 20%, 98%);
+
+  text-rendering: optimizeLegibility;
+}
+
+/* Justify and hyphenate all paragraphs */
+.latex-content p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  margin-top: 1rem;
+}
+
+/* A elements that don't have a class get default styles */
+.latex-content a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make links red */
+.latex-content a,
+.latex-content a:visited {
+  color: #a00;
+}
+
+.latex-content a:focus {
+  outline-offset: 2px;
+  outline: 2px solid hsl(220, 90%, 52%);
+}
+
+/* Make images easier to work with */
+.latex-content img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+.latex-content input,
+.latex-content button,
+.latex-content textarea,
+.latex-content select {
+  font: inherit;
+}
+
+/* Prevent textarea from overflowing */
+.latex-content textarea {
+  width: 100%;
+}
+
+/* Natural flow and rhythm in articles by default */
+.latex-content article > * + * {
+  margin-top: 1em;
+}
+
+/* Styles for inline code or code snippets */
+.latex-content code,
+.latex-content pre,
+.latex-content kbd {
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  font-size: 85%;
+}
+.latex-content pre {
+  padding: 1rem 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  border-radius: 4px;
+  background: hsl(210, 28%, 93%);
+}
+.latex-content pre code {
+  font-size: 95%;
+  position: relative;
+}
+.latex-content kbd {
+  background: hsl(210, 5%, 100%);
+  border: 1px solid hsl(210, 5%, 70%);
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 75%;
+}
+
+/* Make table 100% width, add borders between rows */
+.latex-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.latex-content th,
+.latex-content td {
+  text-align: left;
+  padding: 0.5rem;
+}
+.latex-content td {
+  border-bottom: 1px solid hsl(0, 0%, 85%);
+}
+.latex-content thead th {
+  border-bottom: 2px solid hsl(0, 0%, 70%);
+}
+.latex-content tfoot th {
+  border-top: 2px solid hsl(0, 0%, 70%);
+}
+
+/* Center align the title */
+.latex-content h1:first-child {
+  text-align: center;
+}
+
+/* Nested ordered list for ToC */
+.latex-content nav ol {
+  counter-reset: item;
+  padding-left: 2rem;
+}
+.latex-content nav li {
+  display: block;
+}
+.latex-content nav li:before {
+  content: counters(item, '.') ' ';
+  counter-increment: item;
+  padding-right: 0.85rem;
+}
+
+/* Center definitions (most useful for display equations) */
+.latex-content dl dd {
+  text-align: center;
+}
+
+/* Theorem */
+.latex-content .theorem {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.latex-content .theorem::before {
+  content: 'Theorem ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+.latex-content .lemma {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.latex-content .lemma::before {
+  content: 'Lemma ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proof */
+.latex-content .proof {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  position: relative;
+}
+.latex-content .proof::before {
+  content: 'Proof. ' attr(title);
+  font-style: italic;
+}
+.latex-content .proof:after {
+  content: '◾️';
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+.latex-content .definition {
+  counter-increment: definition;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+.latex-content .definition::before {
+  content: 'Definition ' counter(definition) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Center align author name, use small caps and add vertical spacing  */
+.latex-content .author {
+  margin: 0.85rem 0;
+  font-variant-caps: small-caps;
+  text-align: center;
+}
+
+/* Make footnote text smaller and left align it (looks bad with long URLs) */
+.latex-content .footnotes p {
+  text-align: left;
+  line-height: 1.5;
+  font-size: 85%;
+  margin-bottom: 0.4rem;
+}
+.latex-content .footnotes {
+  border-top: 1px solid hsl(0, 0%, 39%);
+}
+
+/* Center title and paragraph */
+.latex-content .abstract,
+.latex-content .abstract p {
+  text-align: center;
+}
+.latex-content .abstract {
+  margin: 2.25rem 0;
+}
+
+/* Format the LaTeX symbol correctly (a higher up, e lower) */
+.latex-content .latex span:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  vertical-align: 0.28em;
+  margin-left: -0.48em;
+  margin-right: -0.15em;
+  line-height: 1ex;
+}
+
+.latex-content .latex span:nth-child(2) {
+  text-transform: uppercase;
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+  line-height: 1ex;
+}
+
+/* Heading typography */
+.latex-content h1 {
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  margin-bottom: 1.625rem;
+}
+
+.latex-content h2 {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  margin-top: 3rem;
+}
+
+.latex-content h3 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+}
+
+.latex-content h4 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.latex-content h5 {
+  font-size: 1rem;
+  margin-top: 1.8rem;
+}
+
+.latex-content h6 {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 2.5rem;
+}
+
+.latex-content h3,
+.latex-content h4,
+.latex-content h5,
+.latex-content h6 {
+  line-height: 1.625rem;
+}
+
+.latex-content h1 + h2 {
+  margin-top: 1.625rem;
+}
+
+.latex-content h2 + h3,
+.latex-content h3 + h4,
+.latex-content h4 + h5 {
+  margin-top: 0.8rem;
+}
+
+.latex-content h5 + h6 {
+  margin-top: -0.8rem;
+}
+
+.latex-content h2,
+.latex-content h3,
+.latex-content h4,
+.latex-content h5,
+.latex-content h6 {
+  margin-bottom: 0.8rem;
+}
+
+h1.title {
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 1rem;
+    scroll-behavior: smooth;
+    font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+    line-height: 1.8;
+
+    max-width: 80ch;
+    /* min-height: 100vh;*/
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+
+    counter-reset: theorem;
+    counter-reset: definition;
+
+    color: hsl(0, 5%, 10%);
+    background-color: hsl(210, 20%, 98%);
+
+    text-rendering: optimizeLegibility;
+    
+    text-align: center;
+    
+    font-size: 2.5rem;
+    line-height: 3.25rem;
+    margin-bottom: 1.625rem;
+
+}
