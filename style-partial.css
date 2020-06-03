@@ -1,8 +1,11 @@
 /*!
  * LaTeX.css (https://latex.now.sh/)
  *
- * Source: https://github.com/vincentdoerig/latex-css
- * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+ * A modification of the original style-css. This applies the style only inside
+ * a div with class "latex-content". 
+ *
+ * Source: https://github.com/cnngimenez/latex-css
+ * Licensed under GPLv3
 */
 
 @font-face {
