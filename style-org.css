@@ -1,0 +1,418 @@
+/*!
+ * LaTeX.css (https://latex.now.sh/)
+ *
+ * This is a modification of the style-css for using with org-mode and
+ * ox-twbs package exports.
+ *
+ * 
+ * Source: https://github.com/cnngimenez/latex-css
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+*/
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-regular.woff2') format('woff2'),
+    url('./fonts/LM-regular.woff') format('woff'),
+    url('./fonts/LM-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LM-italic.woff2') format('woff2'),
+    url('./fonts/LM-italic.woff') format('woff'),
+    url('./fonts/LM-italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold.woff2') format('woff2'),
+    url('./fonts/LM-bold.woff') format('woff'),
+    url('./fonts/LM-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
+    url('./fonts/LM-bold-italic.woff') format('woff'),
+    url('./fonts/LM-bold-italic.ttf') format('truetype');
+}
+
+/* Box sizing rules */
+div.col-md-9.col-md-pull-3 *,
+div.col-md-9.col-md-pull-3 *::before,
+div.col-md-9.col-md-pull-3 *::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+div.col-md-9.col-md-pull-3,
+div.col-md-9.col-md-pull-3 h1,
+div.col-md-9.col-md-pull-3 h2,
+div.col-md-9.col-md-pull-3 h3,
+div.col-md-9.col-md-pull-3 h4,
+div.col-md-9.col-md-pull-3 p,
+div.col-md-9.col-md-pull-3 ul[class],
+div.col-md-9.col-md-pull-3 ol[class],
+div.col-md-9.col-md-pull-3 li,
+div.col-md-9.col-md-pull-3 figure,
+div.col-md-9.col-md-pull-3 figcaption,
+div.col-md-9.col-md-pull-3 dl,
+div.col-md-9.col-md-pull-3 dd {
+  margin: 0;
+}
+
+/* Make default font-size 1rem and add smooth scrolling to anchors */
+div.col-md-9.col-md-pull-3 {
+    font-size: 1.2rem;
+    scroll-behavior: smooth;
+}
+
+div.col-md-9.col-md-pull-3 {
+  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  line-height: 1.8;
+
+  max-width: 80ch;
+  float: none;
+  /*min-height: 100vh;*/
+  overflow-x: hidden;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+
+  counter-reset: theorem;
+  counter-reset: definition;
+
+  color: hsl(0, 5%, 10%);
+  background-color: hsl(210, 20%, 98%);
+
+  text-rendering: optimizeLegibility;
+}
+
+/* Justify and hyphenate all paragraphs */
+div.col-md-9.col-md-pull-3 p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  margin-top: 1rem;
+}
+
+/* A elements that don't have a class get default styles */
+div.col-md-9.col-md-pull-3 a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make links red */
+div.col-md-9.col-md-pull-3 a,
+div.col-md-9.col-md-pull-3 a:visited {
+  color: #a00;
+}
+
+div.col-md-9.col-md-pull-3 a:focus {
+  outline-offset: 2px;
+  outline: 2px solid hsl(220, 90%, 52%);
+}
+
+/* Make images easier to work with */
+div.col-md-9.col-md-pull-3 img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+div.col-md-9.col-md-pull-3 input,
+div.col-md-9.col-md-pull-3 button,
+div.col-md-9.col-md-pull-3 textarea,
+div.col-md-9.col-md-pull-3 select {
+  font: inherit;
+}
+
+/* Prevent textarea from overflowing */
+div.col-md-9.col-md-pull-3 textarea {
+  width: 100%;
+}
+
+/* Natural flow and rhythm in articles by default */
+div.col-md-9.col-md-pull-3 article > * + * {
+  margin-top: 1em;
+}
+
+/* Styles for inline code or code snippets */
+div.col-md-9.col-md-pull-3 code,
+div.col-md-9.col-md-pull-3 pre,
+div.col-md-9.col-md-pull-3 kbd {
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  font-size: 85%;
+}
+div.col-md-9.col-md-pull-3 pre {
+  padding: 1rem 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  border-radius: 4px;
+  background: hsl(210, 28%, 93%);
+}
+div.col-md-9.col-md-pull-3 pre code {
+  font-size: 95%;
+  position: relative;
+}
+div.col-md-9.col-md-pull-3 kbd {
+  background: hsl(210, 5%, 100%);
+  border: 1px solid hsl(210, 5%, 70%);
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 75%;
+}
+
+/* Make table 100% width, add borders between rows */
+div.col-md-9.col-md-pull-3 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+div.col-md-9.col-md-pull-3 th,
+div.col-md-9.col-md-pull-3 td {
+  text-align: left;
+  padding: 0.5rem;
+}
+div.col-md-9.col-md-pull-3 td {
+  border-bottom: 1px solid hsl(0, 0%, 85%);
+}
+div.col-md-9.col-md-pull-3 thead th {
+  border-bottom: 2px solid hsl(0, 0%, 70%);
+}
+div.col-md-9.col-md-pull-3 tfoot th {
+  border-top: 2px solid hsl(0, 0%, 70%);
+}
+
+/* Center align the title */
+div.col-md-9.col-md-pull-3 h1:first-child {
+  text-align: center;
+}
+
+/* Nested ordered list for ToC */
+div.col-md-9.col-md-pull-3 nav ol {
+  counter-reset: item;
+  padding-left: 2rem;
+}
+div.col-md-9.col-md-pull-3 nav li {
+  display: block;
+}
+div.col-md-9.col-md-pull-3 nav li:before {
+  content: counters(item, '.') ' ';
+  counter-increment: item;
+  padding-right: 0.85rem;
+}
+
+/* Center definitions (most useful for display equations) */
+div.col-md-9.col-md-pull-3 dl dd {
+  text-align: center;
+}
+
+/* Theorem */
+div.col-md-9.col-md-pull-3 .theorem {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+div.col-md-9.col-md-pull-3 .theorem::before {
+  content: 'Theorem ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+div.col-md-9.col-md-pull-3 .lemma {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+div.col-md-9.col-md-pull-3 .lemma::before {
+  content: 'Lemma ' counter(theorem) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proof */
+div.col-md-9.col-md-pull-3 .proof {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  position: relative;
+}
+div.col-md-9.col-md-pull-3 .proof::before {
+  content: 'Proof. ' attr(title);
+  font-style: italic;
+}
+div.col-md-9.col-md-pull-3 .proof:after {
+  content: '◾️';
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+div.col-md-9.col-md-pull-3 .definition {
+  counter-increment: definition;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+div.col-md-9.col-md-pull-3 .definition::before {
+  content: 'Definition ' counter(definition) '. ';
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Center align author name, use small caps and add vertical spacing  */
+div.col-md-9.col-md-pull-3 .author {
+  margin: 0.85rem 0;
+  font-variant-caps: small-caps;
+  text-align: center;
+}
+
+/* Make footnote text smaller and left align it (looks bad with long URLs) */
+div.col-md-9.col-md-pull-3 .footnotes p {
+  text-align: left;
+  line-height: 1.5;
+  font-size: 85%;
+  margin-bottom: 0.4rem;
+}
+div.col-md-9.col-md-pull-3 .footnotes {
+  border-top: 1px solid hsl(0, 0%, 39%);
+}
+
+/* Center title and paragraph */
+div.col-md-9.col-md-pull-3 .abstract,
+div.col-md-9.col-md-pull-3 .abstract p {
+  text-align: center;
+}
+div.col-md-9.col-md-pull-3 .abstract {
+  margin: 2.25rem 0;
+}
+
+/* Format the LaTeX symbol correctly (a higher up, e lower) */
+div.col-md-9.col-md-pull-3 .latex span:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  vertical-align: 0.28em;
+  margin-left: -0.48em;
+  margin-right: -0.15em;
+  line-height: 1ex;
+}
+
+div.col-md-9.col-md-pull-3 .latex span:nth-child(2) {
+  text-transform: uppercase;
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+  line-height: 1ex;
+}
+
+/* Heading typography */
+div.col-md-9.col-md-pull-3 h1 {
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  margin-bottom: 1.625rem;
+}
+
+div.col-md-9.col-md-pull-3 h2 {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  margin-top: 3rem;
+}
+
+div.col-md-9.col-md-pull-3 h3 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+}
+
+div.col-md-9.col-md-pull-3 h4 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+div.col-md-9.col-md-pull-3 h5 {
+  font-size: 1rem;
+  margin-top: 1.8rem;
+}
+
+div.col-md-9.col-md-pull-3 h6 {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 2.5rem;
+}
+
+div.col-md-9.col-md-pull-3 h3,
+div.col-md-9.col-md-pull-3 h4,
+div.col-md-9.col-md-pull-3 h5,
+div.col-md-9.col-md-pull-3 h6 {
+  line-height: 1.625rem;
+}
+
+div.col-md-9.col-md-pull-3 h1 + h2 {
+  margin-top: 1.625rem;
+}
+
+div.col-md-9.col-md-pull-3 h2 + h3,
+div.col-md-9.col-md-pull-3 h3 + h4,
+div.col-md-9.col-md-pull-3 h4 + h5 {
+  margin-top: 0.8rem;
+}
+
+div.col-md-9.col-md-pull-3 h5 + h6 {
+  margin-top: -0.8rem;
+}
+
+div.col-md-9.col-md-pull-3 h2,
+div.col-md-9.col-md-pull-3 h3,
+div.col-md-9.col-md-pull-3 h4,
+div.col-md-9.col-md-pull-3 h5,
+div.col-md-9.col-md-pull-3 h6 {
+  margin-bottom: 0.8rem;
+}
+
+h1.title {
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 1rem;
+    scroll-behavior: smooth;
+    font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+    line-height: 1.8;
+
+    max-width: 80ch;
+    /* min-height: 100vh;*/
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+
+    counter-reset: theorem;
+    counter-reset: definition;
+
+    color: hsl(0, 5%, 10%);
+    background-color: hsl(210, 20%, 98%);
+
+    text-rendering: optimizeLegibility;
+    
+    text-align: center;
+    
+    font-size: 2.5rem;
+    line-height: 3.25rem;
+    margin-bottom: 1.625rem;
+
+}
