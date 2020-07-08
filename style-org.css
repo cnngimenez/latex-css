@@ -127,6 +127,7 @@ div.col-md-9.col-md-pull-3 a:focus {
 /* Make images easier to work with */
 div.col-md-9.col-md-pull-3 img {
   max-width: 100%;
+  height: auto; 
   display: block;
 }
 
@@ -175,26 +176,65 @@ div.col-md-9.col-md-pull-3 kbd {
   font-size: 75%;
 }
 
-/* Make table 100% width, add borders between rows */
-div.col-md-9.col-md-pull-3 table {
+/* Better tables */
+table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  width: auto;
   max-width: 100%;
+  border-top: 2.27px solid black;
+  border-bottom: 2.27px solid black;
+  /* display: block; */
+  overflow-x: auto; /* does not work because element is not block */
+  /* white-space: nowrap; */
+  counter-increment: caption;
+}
+/* add bottom border on column table headings  */
+table tr > th[scope='col'] {
+  border-bottom: 1.36px solid black;
+}
+/* add right border on row table headings  */
+table tr > th[scope='row'] {
+  border-right: 1.36px solid black;
+}
+table > tbody > tr:first-child > td,
+table > tbody > tr:first-child > th {
+  border-top: 1.36px solid black;
+}
+table > tbody > tr:last-child > td,
+table > tbody > tr:last-child > th {
+  border-bottom: 1.36px solid black;
 }
 div.col-md-9.col-md-pull-3 th,
 div.col-md-9.col-md-pull-3 td {
   text-align: left;
   padding: 0.5rem;
+  line-height: 1.1;
 }
-div.col-md-9.col-md-pull-3 td {
-  border-bottom: 1px solid hsl(0, 0%, 85%);
+/* Table caption */
+caption {
+  text-align: left;
+  font-size: 0.923em;
+  /* border-bottom: 2pt solid #000; */
+  padding: 0 0.25em 0.25em;
+  width: 100%;
+  margin-left: 0;
 }
-div.col-md-9.col-md-pull-3 thead th {
-  border-bottom: 2px solid hsl(0, 0%, 70%);
+
+caption::before {
+  content: 'Table ' counter(caption) '. ';
+  font-weight: bold;
 }
-div.col-md-9.col-md-pull-3 tfoot th {
-  border-top: 2px solid hsl(0, 0%, 70%);
+
+/* allow scroll on the x-axis */
+.scroll-wrapper {
+  overflow-x: auto;
+}
+
+/* if a table is wrapped in a scroll wrapper,
+  the table cells shouldn't wrap */
+.scroll-wrapper > table td {
+  white-space: nowrap;
 }
 
 /* Center align the title */
@@ -300,9 +340,14 @@ div.col-md-9.col-md-pull-3 .footnotes {
 div.col-md-9.col-md-pull-3 .abstract,
 div.col-md-9.col-md-pull-3 .abstract p {
   text-align: center;
+  margin-top: 0;
 }
 div.col-md-9.col-md-pull-3 .abstract {
   margin: 2.25rem 0;
+}
+.abstract > h2 {
+  font-size: 1rem;
+  margin-bottom: -0.2rem;
 }
 
 /* Format the LaTeX symbol correctly (a higher up, e lower) */
