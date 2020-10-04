@@ -83,7 +83,7 @@ div.col-md-9.col-md-pull-3 {
   font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
   line-height: 1.8;
 
-  max-width: 80ch;
+  max-width: 100ch;
   float: none;
   /*min-height: 100vh;*/
   overflow-x: hidden;
